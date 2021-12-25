@@ -78,3 +78,7 @@ Desktop.ini
 .csettings
 
 # End of https://www.toptal.com/developers/gitignore/api/openframeworks
+
+# Our BS
+/.vscode/c_cpp_properties.json
+config.make
