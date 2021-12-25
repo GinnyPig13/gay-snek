@@ -2,7 +2,16 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    // Create a dynamically proportional window one third the size of the screen
+    int length;
+    length = 0.3 * ofGetScreenWidth();
+    // Create variables to force the window to be centered dynamically
+    int centerWidth;
+    centerWidth = (ofGetScreenWidth()/2) - (length/2);
+    int centerHeight;
+    centerHeight = (ofGetScreenHeight()/2) - (length/2);
+    ofSetWindowShape(length, length);
+    ofSetWindowPosition(centerWidth, centerHeight);
 }
 
 //--------------------------------------------------------------
