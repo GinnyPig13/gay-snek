@@ -13,7 +13,7 @@ void ofApp::setup(){
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
 
-    font.load("Cinderheart.otf", 50);
+    titleFont.load("Cinderheart.otf", 50);
 }
 
 //--------------------------------------------------------------
