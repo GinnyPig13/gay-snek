@@ -1,5 +1,10 @@
 #include "ofApp.h"
 
+namespace
+{
+    void drawTitle(const ofTrueTypeFont& font);
+}
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     // Create a dynamically proportional window one third the size of the screen
@@ -23,13 +28,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    const std::string title = "GAY SNEK";
-    const float titleWidth = titleFont.stringWidth(title);
-    const float titleHeight = titleFont.stringHeight(title);
-
-    const float centerWindow = ofGetWidth() / 2.0f;
-    const float centerTitle = titleWidth / 2.0f;
-    titleFont.drawString(title, centerWindow - centerTitle, titleHeight);
+    drawTitle(titleFont);
 }
 
 //--------------------------------------------------------------
@@ -85,4 +84,18 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){
 
+}
+
+namespace
+{
+    void drawTitle(const ofTrueTypeFont& font)
+    {
+        const std::string title = "GAY SNEK";
+        const float titleWidth = font.stringWidth(title);
+        const float titleHeight = font.stringHeight(title);
+
+        const float centerWindow = ofGetWidth() / 2.0f;
+        const float centerTitle = titleWidth / 2.0f;
+        font.drawString(title, centerWindow - centerTitle, titleHeight);
+    }
 }
