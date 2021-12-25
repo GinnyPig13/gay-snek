@@ -12,6 +12,8 @@ void ofApp::setup(){
     centerHeight = (ofGetScreenHeight()/2) - (length/2);
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
+
+    font.load("Cinderheart.otf", 50);
 }
 
 //--------------------------------------------------------------
@@ -21,7 +23,13 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    const std::string title = "GAY SNEK";
+    const float titleWidth = titleFont.stringWidth(title);
+    const float titleHeight = titleFont.stringHeight(title);
 
+    const float centerWindow = ofGetWidth() / 2.0f;
+    const float centerTitle = titleWidth / 2.0f;
+    titleFont.drawString(title, centerWindow - centerTitle, titleHeight);
 }
 
 //--------------------------------------------------------------
@@ -75,6 +83,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
