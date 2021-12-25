@@ -125,8 +125,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:/msys64/mingw32/include/c++/7.4.0",
-                "C:/msys64/mingw32/i686-w64-mingw32/include",
+                "C:/msys64/mingw64/include/c++/10.3.0",
                 "${workspaceRoot}/../../../libs",
                 "${workspaceRoot}/../../../addons",
                 "${workspaceRoot}/../../../libs/openFrameworks",
@@ -141,14 +140,14 @@
                 "${workspaceRoot}/../../../libs/openFrameworks/types",
                 "${workspaceRoot}/../../../libs/openFrameworks/utils",
                 "${workspaceRoot}/../../../libs/openFrameworks/video",
-                "${workspaceRoot}/../../../libs/boost/include",
-                "${workspaceRoot}/../../../libs/cairo/include",
-                "${workspaceRoot}/../../../libs/curl/include",
+                "C:/msys64/mingw64/include",
+                "C:/msys64/mingw64/include/boost",
+                "C:/msys64/mingw64/include/cairo",
+                "C:/msys64/mingw64/include/curl",
+                "C:/msys64/mingw64/include/freetype2/freetype",
+                "C:/msys64/mingw64/include/GL",
+                "C:/msys64/mingw64/include/GLFW",
                 "${workspaceRoot}/../../../libs/fmod/include",
-                "${workspaceRoot}/../../../libs/FreeImage/include",
-                "${workspaceRoot}/../../../libs/freetype/include",
-                "${workspaceRoot}/../../../libs/glew/include",
-                "${workspaceRoot}/../../../libs/glfw/include",
                 "${workspaceRoot}/../../../libs/glm/include",
                 "${workspaceRoot}/../../../libs/json/include",
                 "${workspaceRoot}/../../../libs/pugixml/include",
@@ -167,7 +166,7 @@
                 ]
             },
             "intelliSenseMode": "clang-x64",
-            "compilerPath": "C:/msys64/mingw32/bin/g++.exe",
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++17"
         }
