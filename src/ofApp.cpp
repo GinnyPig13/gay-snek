@@ -8,6 +8,8 @@ namespace
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofBackground(1, 22, 39);
+
     // Create a dynamically proportional window one third the size of the screen
     int length;
     length = 0.3 * ofGetScreenWidth();
