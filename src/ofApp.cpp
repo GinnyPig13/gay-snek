@@ -30,6 +30,15 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     drawTitle(titleFont);
+
+    //Create a character square
+    int squareSize;
+    squareSize = ofGetWindowHeight()/25;
+    int centerWindowWidth;
+    centerWindowWidth = ofGetWindowWidth()/2 - squareSize;
+    int centerWindowHeight;
+    centerWindowHeight = ofGetWindowHeight()/2 - squareSize;
+    ofDrawRectangle(centerWindowWidth, centerWindowHeight, squareSize, squareSize);
 }
 
 //--------------------------------------------------------------
