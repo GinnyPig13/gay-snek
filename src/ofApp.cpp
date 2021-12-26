@@ -2,6 +2,7 @@
 
 namespace
 {
+    void loadTitleFont(ofTrueTypeFont& font);
     void drawTitle(const ofTrueTypeFont& font);
 }
 
@@ -18,7 +19,7 @@ void ofApp::setup(){
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
 
-    titleFont.load("Cinderheart.otf", 50);
+    loadTitleFont(titleFont);
 }
 
 //--------------------------------------------------------------
@@ -84,7 +85,6 @@ void ofApp::mouseExited(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
 }
 
 //--------------------------------------------------------------
@@ -99,6 +99,15 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 namespace
 {
+    void loadTitleFont(ofTrueTypeFont& font)
+    {
+        // Scale font size by width
+        constexpr float defaultWidth = 1980.0f;
+        constexpr int defaultFontSize = 50;
+        const float fontScalar = ofGetScreenWidth() / defaultWidth;
+        font.load("Cinderheart.otf", defaultFontSize * fontScalar);
+    }
+
     void drawTitle(const ofTrueTypeFont& font)
     {
         const std::string title = "GAY SNEK";
