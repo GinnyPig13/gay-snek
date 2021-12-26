@@ -29,7 +29,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofSetColor(255, 255, 252);
     drawTitle(titleFont);
 
     //Create a character square
@@ -116,6 +115,8 @@ namespace
 
         const float centerWindow = ofGetWidth() / 2.0f;
         const float centerTitle = titleWidth / 2.0f;
+        
+        ofSetColor(255, 255, 252);
         font.drawString(title, centerWindow - centerTitle, titleHeight);
     }
 }
