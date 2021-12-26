@@ -28,6 +28,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetColor(255, 255, 252);
     drawTitle(titleFont);
 
     //Create a character square
@@ -37,6 +38,7 @@ void ofApp::draw(){
     centerWindowWidth = ofGetWindowWidth()/2 - squareSize;
     int centerWindowHeight;
     centerWindowHeight = ofGetWindowHeight()/2 - squareSize;
+    ofSetColor(255, 173, 173);
     ofDrawRectangle(centerWindowWidth, centerWindowHeight, squareSize, squareSize);
 }
 
