@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "vector2D.h"
 
 class ofApp : public ofBaseApp
 {
@@ -22,4 +23,9 @@ public:
 	void gotMessage(ofMessage msg);
 
 	ofTrueTypeFont titleFont;
+	int squareSize;
+	int centerWindowWidth;
+    int centerWindowHeight;
+
+	vector2D currentPosition;
 };

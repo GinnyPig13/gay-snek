@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include "vector2D.h"
 
 namespace
 {
@@ -21,6 +22,13 @@ void ofApp::setup(){
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
 
+    squareSize = ofGetWindowHeight()/25;
+	centerWindowWidth = (ofGetWindowWidth()/2) - (squareSize/2);
+    centerWindowHeight = (ofGetWindowHeight()/2) - (squareSize/2);
+
+    currentPosition.x = centerWindowWidth;
+    currentPosition.y = centerWindowHeight;
+
     loadTitleFont(titleFont);
 }
 
@@ -34,18 +42,33 @@ void ofApp::draw(){
     drawTitle(titleFont);
 
     //Create a character square
-    int squareSize;
-    squareSize = ofGetWindowHeight()/25;
-    int centerWindowWidth;
-    centerWindowWidth = ofGetWindowWidth()/2 - squareSize;
-    int centerWindowHeight;
-    centerWindowHeight = ofGetWindowHeight()/2 - squareSize;
     ofSetColor(255, 173, 173);
-    ofDrawRectangle(centerWindowWidth, centerWindowHeight, squareSize, squareSize);
+    ofDrawRectangle(currentPosition.x, currentPosition.y, squareSize, squareSize);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+
+    if (key == OF_KEY_LEFT)
+    {
+        currentPosition.x = currentPosition.x - squareSize;
+    }
+
+    else if (key == OF_KEY_RIGHT)
+    {
+        currentPosition.x = currentPosition.x + squareSize;
+    }
+
+    else if (key == OF_KEY_UP)
+    {
+        currentPosition.y = currentPosition.y - squareSize;
+    }
+
+    else if (key == OF_KEY_DOWN)
+    {
+        currentPosition.y = currentPosition.y + squareSize;
+    }
+    
 
 }
 
