@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+
+#include "collectable.h"
 #include "vector2D.h"
 
 class ofApp : public ofBaseApp
@@ -29,4 +31,6 @@ public:
 
 	vector2D currentPosition;
 	int keyPress;
+
+	KCC::collectable collectable;
 };

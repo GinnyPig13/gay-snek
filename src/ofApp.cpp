@@ -29,12 +29,15 @@ void ofApp::setup(){
     currentPosition.x = centerWindowWidth;
     currentPosition.y = centerWindowHeight;
 
+    collectable.setPlayerPosition(&currentPosition);
+    collectable.randomizePosition(squareSize);
+
     loadTitleFont(titleFont);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
+
     if (keyPress == OF_KEY_LEFT)
     {
         currentPosition.x = currentPosition.x - squareSize;
@@ -59,6 +62,8 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     drawTitle(titleFont);
+
+    collectable.draw(squareSize);
 
     //Create a character square
     ofSetColor(255, 173, 173);
@@ -87,7 +92,7 @@ void ofApp::keyPressed(int key){
     {
         currentPosition.y = currentPosition.y + squareSize;
     }
-    
+
     keyPress = key;
 }
 
@@ -159,7 +164,7 @@ namespace
 
         const float centerWindow = ofGetWidth() / 2.0f;
         const float centerTitle = titleWidth / 2.0f;
-        
+
         ofSetColor(255, 255, 252);
         font.drawString(title, centerWindow - centerTitle, titleHeight);
     }
