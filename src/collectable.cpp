@@ -3,7 +3,18 @@
 #include "ofGraphics.h"
 #include "ofMath.h"
 
-void KCC::collectable::randomizePosition(int size)
+void KCC::collectable::setup(int size, const vector2D* playerPosition)
+{
+    this->size = size;
+    this->playerPosition = playerPosition;
+
+    if(playerPosition)
+    {
+        randomizePosition();
+    }
+}
+
+void KCC::collectable::randomizePosition()
 {
     if(playerPosition)
     {

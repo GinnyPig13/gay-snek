@@ -29,8 +29,7 @@ void ofApp::setup(){
     currentPosition.x = centerWindowWidth;
     currentPosition.y = centerWindowHeight;
 
-    collectable.setPlayerPosition(&currentPosition);
-    collectable.randomizePosition(squareSize);
+    collectable.setup(squareSize, &currentPosition);
 
     loadTitleFont(titleFont);
 }
@@ -57,6 +56,12 @@ void ofApp::update(){
     {
         currentPosition.y = currentPosition.y + squareSize;
     }
+
+    const vector2D& collectablePosition = collectable.getPosition();
+    if(collectablePosition.x == currentPosition.x && collectablePosition.y == currentPosition.y)
+    {
+        collectable.randomizePosition();
+    }
 }
 
 //--------------------------------------------------------------
@@ -73,7 +78,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    
+
     keyPress = key;
 }
 
