@@ -34,7 +34,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
+    ofSetFrameRate (5);
     if (keyPress == OF_KEY_LEFT)
     {
         currentPosition.x = currentPosition.x - squareSize;
@@ -63,30 +63,11 @@ void ofApp::draw(){
     //Create a character square
     ofSetColor(255, 173, 173);
     ofDrawRectangle(currentPosition.x, currentPosition.y, squareSize, squareSize);
+    ofSetFrameRate (5);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
-    if (key == OF_KEY_LEFT)
-    {
-        currentPosition.x = currentPosition.x - squareSize;
-    }
-
-    else if (key == OF_KEY_RIGHT)
-    {
-        currentPosition.x = currentPosition.x + squareSize;
-    }
-
-    else if (key == OF_KEY_UP)
-    {
-        currentPosition.y = currentPosition.y - squareSize;
-    }
-
-    else if (key == OF_KEY_DOWN)
-    {
-        currentPosition.y = currentPosition.y + squareSize;
-    }
     
     keyPress = key;
 }
