@@ -28,4 +28,5 @@ public:
     int centerWindowHeight;
 
 	vector2D currentPosition;
+	int keyPress;
 };

@@ -34,7 +34,26 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
+    if (keyPress == OF_KEY_LEFT)
+    {
+        currentPosition.x = currentPosition.x - squareSize;
+    }
 
+    else if (keyPress == OF_KEY_RIGHT)
+    {
+        currentPosition.x = currentPosition.x + squareSize;
+    }
+
+    else if (keyPress == OF_KEY_UP)
+    {
+        currentPosition.y = currentPosition.y - squareSize;
+    }
+
+    else if (keyPress == OF_KEY_DOWN)
+    {
+        currentPosition.y = currentPosition.y + squareSize;
+    }
 }
 
 //--------------------------------------------------------------
@@ -69,7 +88,7 @@ void ofApp::keyPressed(int key){
         currentPosition.y = currentPosition.y + squareSize;
     }
     
-
+    keyPress = key;
 }
 
 //--------------------------------------------------------------
