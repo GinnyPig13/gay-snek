@@ -37,7 +37,11 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+<<<<<<< HEAD
+
+=======
     ofSetFrameRate (5);
+>>>>>>> 24c1664216ff82fb04fa380492dd2f53f6e11a1a
     if (keyPress == OF_KEY_LEFT)
     {
         currentPosition.x = currentPosition.x - squareSize;
@@ -73,7 +77,31 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+<<<<<<< HEAD
+
+    if (key == OF_KEY_LEFT)
+    {
+        currentPosition.x = currentPosition.x - squareSize;
+    }
+
+    else if (key == OF_KEY_RIGHT)
+    {
+        currentPosition.x = currentPosition.x + squareSize;
+    }
+
+    else if (key == OF_KEY_UP)
+    {
+        currentPosition.y = currentPosition.y - squareSize;
+    }
+
+    else if (key == OF_KEY_DOWN)
+    {
+        currentPosition.y = currentPosition.y + squareSize;
+    }
+
+=======
     
+>>>>>>> 24c1664216ff82fb04fa380492dd2f53f6e11a1a
     keyPress = key;
 }
 
