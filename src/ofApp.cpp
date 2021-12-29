@@ -57,6 +57,7 @@ void ofApp::update(){
     {
         currentPosition.y = currentPosition.y + 1;
     }
+    
 
     const vector2D& collectablePosition = collectable.getPosition();
     if(collectablePosition.x == currentPosition.x && collectablePosition.y == currentPosition.y)
@@ -79,8 +80,22 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
-    keyPress = key;
+     if (key == OF_KEY_LEFT)
+    {
+        keyPress = key;
+    }
+    else if (key == OF_KEY_RIGHT)
+    {
+        keyPress = key;
+    }
+    else if (key == OF_KEY_UP)
+    {
+        keyPress = key;
+    }
+    else if (key == OF_KEY_DOWN)
+    {
+        keyPress = key;
+    }
 }
 
 //--------------------------------------------------------------
