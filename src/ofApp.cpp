@@ -18,13 +18,10 @@ void ofApp::setup(){
     loadTitleFont(titleFont);
 
     // Create a dynamically proportional window one third the size of the screen
-    int length;
-    length = 0.3 * ofGetScreenWidth();
+    int length = 0.3 * ofGetScreenWidth();
     // Create variables to force the window to be centered dynamically
-    int centerWidth;
-    centerWidth = (ofGetScreenWidth()/2) - (length/2);
-    int centerHeight;
-    centerHeight = (ofGetScreenHeight()/2) - (length/2);
+    int centerWidth = (ofGetScreenWidth()/2) - (length/2);
+    int centerHeight = (ofGetScreenHeight()/2) - (length/2);
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
 
@@ -32,12 +29,13 @@ void ofApp::setup(){
 	centerWindowWidth = (ofGetWindowWidth()/2) - (squareSize/2);
     centerWindowHeight = (ofGetWindowHeight()/2) - (squareSize/2);
 
+    ofSetFrameRate(5);
+
     resetState();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    ofSetFrameRate (5);
     if (keyPress == OF_KEY_LEFT)
     {
         currentPosition.x = currentPosition.x - 1;
@@ -75,24 +73,14 @@ void ofApp::draw(){
     //Create a character square
     ofSetColor(KCC::colors::lightPinkRed);
     ofDrawRectangle(currentPosition.x * squareSize, currentPosition.y * squareSize, squareSize, squareSize);
-    ofSetFrameRate (5);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-     if (key == OF_KEY_LEFT)
-    {
-        keyPress = key;
-    }
-    else if (key == OF_KEY_RIGHT)
-    {
-        keyPress = key;
-    }
-    else if (key == OF_KEY_UP)
-    {
-        keyPress = key;
-    }
-    else if (key == OF_KEY_DOWN)
+    if (key == OF_KEY_LEFT ||
+        key == OF_KEY_RIGHT ||
+        key == OF_KEY_DOWN ||
+        key == OF_KEY_UP)
     {
         keyPress = key;
     }
