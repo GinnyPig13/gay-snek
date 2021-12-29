@@ -1,12 +1,12 @@
 #include "collectable.h"
 
+#include "ofApp.h"
 #include "ofGraphics.h"
 #include "ofMath.h"
 #include "colors.h"
 
-void KCC::collectable::setup(int size, const vector2D* playerPosition)
+void KCC::collectable::setup(const vector2D* playerPosition)
 {
-    this->size = size;
     this->playerPosition = playerPosition;
 
     if(playerPosition)
@@ -23,8 +23,8 @@ void KCC::collectable::randomizePosition()
         int randomY = 0;
         do
         {
-            randomX = static_cast<int>(ofRandom(size));
-            randomY = static_cast<int>(ofRandom(size));
+            randomX = static_cast<int>(ofRandom(ofApp::gridSize));
+            randomY = static_cast<int>(ofRandom(ofApp::gridSize));
         } while (randomX == playerPosition->x && randomY == playerPosition->y);
 
         position.x = randomX;
@@ -32,8 +32,10 @@ void KCC::collectable::randomizePosition()
     }
 }
 
-void KCC::collectable::draw(int size)
+void KCC::collectable::draw()
 {
     ofSetColor(KCC::colors::deepChampagneOrange);
-    ofDrawRectangle(position.x * size, position.y * size, size, size);
+
+    const int gridUnit = ofGetWindowWidth() / ofApp::gridSize;
+    ofDrawRectangle(position.x * gridUnit, position.y * gridUnit, gridUnit, gridUnit);
 }

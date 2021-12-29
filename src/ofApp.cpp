@@ -70,7 +70,7 @@ void ofApp::update(){
 void ofApp::draw(){
     drawTitle(titleFont);
 
-    collectable.draw(squareSize);
+    collectable.draw();
 
     //Create a character square
     ofSetColor(KCC::colors::lightPinkRed);
@@ -152,7 +152,7 @@ void ofApp::resetState()
     currentPosition.x = gridCenter;
     currentPosition.y = gridCenter;
 
-    collectable.setup(squareSize, &currentPosition);
+    collectable.setup(&currentPosition);
 
     keyPress = -1;
 }

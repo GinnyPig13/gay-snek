@@ -7,8 +7,8 @@ namespace KCC
     class collectable
     {
     public:
-        void setup(int size, const vector2D* playerPosition);
-        void draw(int size);
+        void setup(const vector2D* playerPosition);
+        void draw();
 
         void randomizePosition();
         inline const vector2D& getPosition() const { return position; }
@@ -16,7 +16,5 @@ namespace KCC
     private:
         vector2D position;
         const vector2D* playerPosition;
-
-        int size;
     };
 }
