@@ -1,5 +1,7 @@
 #include "ofApp.h"
+
 #include "vector2D.h"
+#include "colors.h"
 
 namespace
 {
@@ -70,7 +72,7 @@ void ofApp::draw(){
     collectable.draw(squareSize);
 
     //Create a character square
-    ofSetColor(255, 173, 173);
+    ofSetColor(KCC::colors::red);
     ofDrawRectangle(currentPosition.x * squareSize, currentPosition.y * squareSize, squareSize, squareSize);
     ofSetFrameRate (5);
 }
