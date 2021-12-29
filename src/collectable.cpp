@@ -36,6 +36,6 @@ void KCC::collectable::draw()
 {
     ofSetColor(KCC::colors::deepChampagneOrange);
 
-    const int gridUnit = ofGetWindowWidth() / ofApp::gridSize;
+    static const int gridUnit = ofGetWindowWidth() / ofApp::gridSize;
     ofDrawRectangle(position.x * gridUnit, position.y * gridUnit, gridUnit, gridUnit);
 }
