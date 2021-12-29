@@ -11,7 +11,7 @@ namespace KCC
         void draw(int size);
 
         void randomizePosition();
-        inline const vector2D& getPosition() { return position; }
+        inline const vector2D& getPosition() const { return position; }
 
     private:
         vector2D position;

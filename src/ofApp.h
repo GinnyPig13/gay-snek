@@ -8,6 +8,10 @@
 class ofApp : public ofBaseApp
 {
 public:
+	static constexpr int gridSize = 25;
+	static constexpr int gridCenter = gridSize / 2;
+
+public:
 	void setup();
 	void update();
 	void draw();
@@ -24,6 +28,10 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
+private:
+	void resetState();
+
+private:
 	ofTrueTypeFont titleFont;
 	int squareSize;
 	int centerWindowWidth;
