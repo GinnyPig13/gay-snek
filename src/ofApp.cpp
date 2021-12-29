@@ -73,7 +73,7 @@ void ofApp::draw(){
     collectable.draw(squareSize);
 
     //Create a character square
-    ofSetColor(KCC::colors::red);
+    ofSetColor(KCC::colors::lightPinkRed);
     ofDrawRectangle(currentPosition.x * squareSize, currentPosition.y * squareSize, squareSize, squareSize);
     ofSetFrameRate (5);
 }
