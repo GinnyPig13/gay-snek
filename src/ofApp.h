@@ -12,21 +12,11 @@ public:
 	static constexpr int gridCenter = gridSize / 2;
 
 public:
-	void setup();
-	void update();
-	void draw();
+	virtual void setup() override;
+	virtual void update() override;
+	virtual void draw() override;
 
-	void keyPressed(int key);
-	void keyReleased(int key);
-	void mouseMoved(int x, int y );
-	void mouseDragged(int x, int y, int button);
-	void mousePressed(int x, int y, int button);
-	void mouseReleased(int x, int y, int button);
-	void mouseEntered(int x, int y);
-	void mouseExited(int x, int y);
-	void windowResized(int w, int h);
-	void dragEvent(ofDragInfo dragInfo);
-	void gotMessage(ofMessage msg);
+	virtual void keyPressed(int key) override;
 
 private:
 	void resetState();
