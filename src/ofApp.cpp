@@ -7,11 +7,15 @@ namespace
 {
     void loadTitleFont(ofTrueTypeFont& font);
     void drawTitle(const ofTrueTypeFont& font);
+
+    bool hasCollectedCollectable(const KCC::collectable& collectable, const vector2D& player);
+    bool hasCollidedWithBorder(const vector2D& player);
 }
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofBackground(1, 22, 39);
+    loadTitleFont(titleFont);
 
     // Create a dynamically proportional window one third the size of the screen
     int length;
@@ -24,18 +28,11 @@ void ofApp::setup(){
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
 
-    int gridSize = 25;
     squareSize = ofGetWindowHeight()/gridSize;
 	centerWindowWidth = (ofGetWindowWidth()/2) - (squareSize/2);
     centerWindowHeight = (ofGetWindowHeight()/2) - (squareSize/2);
 
-    int gridCenter = gridSize/2;
-    currentPosition.x = gridCenter;
-    currentPosition.y = gridCenter;
-
-    collectable.setup(squareSize, &currentPosition);
-
-    loadTitleFont(titleFont);
+    resetState();
 }
 
 //--------------------------------------------------------------
@@ -57,12 +54,15 @@ void ofApp::update(){
     {
         currentPosition.y = currentPosition.y + 1;
     }
-    
 
-    const vector2D& collectablePosition = collectable.getPosition();
-    if(collectablePosition.x == currentPosition.x && collectablePosition.y == currentPosition.y)
+    if(hasCollectedCollectable(collectable, currentPosition))
     {
         collectable.randomizePosition();
+    }
+
+    if(hasCollidedWithBorder(currentPosition))
+    {
+        resetState();
     }
 }
 
@@ -147,6 +147,16 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
 
+void ofApp::resetState()
+{
+    currentPosition.x = gridCenter;
+    currentPosition.y = gridCenter;
+
+    collectable.setup(squareSize, &currentPosition);
+
+    keyPress = -1;
+}
+
 namespace
 {
     void loadTitleFont(ofTrueTypeFont& font)
@@ -169,5 +179,26 @@ namespace
 
         ofSetColor(255, 255, 252);
         font.drawString(title, centerWindow - centerTitle, titleHeight);
+    }
+
+    bool hasCollectedCollectable(const KCC::collectable& collectable, const vector2D& player)
+    {
+        const vector2D& collectablePosition = collectable.getPosition();
+        return collectablePosition.x == player.x && collectablePosition.y == player.y;
+    }
+
+    bool hasCollidedWithBorder(const vector2D& player)
+    {
+        if(player.x < 0 || player.x >= ofApp::gridSize)
+        {
+            return true;
+        }
+
+        if(player.y < 0 || player.y >= ofApp::gridSize)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
