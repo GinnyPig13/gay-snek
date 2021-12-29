@@ -22,12 +22,14 @@ void ofApp::setup(){
     ofSetWindowShape(length, length);
     ofSetWindowPosition(centerWidth, centerHeight);
 
-    squareSize = ofGetWindowHeight()/25;
+    int gridSize = 25;
+    squareSize = ofGetWindowHeight()/gridSize;
 	centerWindowWidth = (ofGetWindowWidth()/2) - (squareSize/2);
     centerWindowHeight = (ofGetWindowHeight()/2) - (squareSize/2);
 
-    currentPosition.x = centerWindowWidth;
-    currentPosition.y = centerWindowHeight;
+    int gridCenter = gridSize/2;
+    currentPosition.x = gridCenter;
+    currentPosition.y = gridCenter;
 
     collectable.setup(squareSize, &currentPosition);
 
@@ -39,22 +41,19 @@ void ofApp::update(){
     ofSetFrameRate (5);
     if (keyPress == OF_KEY_LEFT)
     {
-        currentPosition.x = currentPosition.x - squareSize;
+        currentPosition.x = currentPosition.x - 1;
     }
-
     else if (keyPress == OF_KEY_RIGHT)
     {
-        currentPosition.x = currentPosition.x + squareSize;
+        currentPosition.x = currentPosition.x + 1;
     }
-
     else if (keyPress == OF_KEY_UP)
     {
-        currentPosition.y = currentPosition.y - squareSize;
+        currentPosition.y = currentPosition.y - 1;
     }
-
     else if (keyPress == OF_KEY_DOWN)
     {
-        currentPosition.y = currentPosition.y + squareSize;
+        currentPosition.y = currentPosition.y + 1;
     }
 
     const vector2D& collectablePosition = collectable.getPosition();
@@ -72,7 +71,7 @@ void ofApp::draw(){
 
     //Create a character square
     ofSetColor(255, 173, 173);
-    ofDrawRectangle(currentPosition.x, currentPosition.y, squareSize, squareSize);
+    ofDrawRectangle(currentPosition.x * squareSize, currentPosition.y * squareSize, squareSize, squareSize);
     ofSetFrameRate (5);
 }
 
