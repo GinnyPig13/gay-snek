@@ -14,7 +14,7 @@ namespace
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofBackground(1, 22, 39);
+    ofBackground(KCC::colors::richBlack);
     loadTitleFont(titleFont);
 
     // Create a dynamically proportional window one third the size of the screen
@@ -177,7 +177,7 @@ namespace
         const float centerWindow = ofGetWidth() / 2.0f;
         const float centerTitle = titleWidth / 2.0f;
 
-        ofSetColor(255, 255, 252);
+        ofSetColor(KCC::colors::babyPowderWhite);
         font.drawString(title, centerWindow - centerTitle, titleHeight);
     }
 

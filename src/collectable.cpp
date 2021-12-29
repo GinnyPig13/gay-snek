@@ -2,6 +2,7 @@
 
 #include "ofGraphics.h"
 #include "ofMath.h"
+#include "colors.h"
 
 void KCC::collectable::setup(int size, const vector2D* playerPosition)
 {
@@ -33,6 +34,6 @@ void KCC::collectable::randomizePosition()
 
 void KCC::collectable::draw(int size)
 {
-    ofSetColor(255, 214, 165);
+    ofSetColor(KCC::colors::deepChampagneOrange);
     ofDrawRectangle(position.x * size, position.y * size, size, size);
 }
