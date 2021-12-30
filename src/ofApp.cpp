@@ -3,13 +3,14 @@
 #include "vector2D.h"
 #include "colors.h"
 
+
 namespace
 {
     void loadTitleFont(ofTrueTypeFont& font);
     void drawTitle(const ofTrueTypeFont& font);
 
-    bool hasCollectedCollectable(const KCC::collectable& collectable, const vector2D& player);
-    bool hasCollidedWithBorder(const vector2D& player);
+    bool hasCollectedCollectable(const KCC::collectable& collectable, const vector2D& playerPosition);
+    bool hasCollidedWithBorder(const vector2D& playerPosition);
 }
 
 //--------------------------------------------------------------
@@ -36,29 +37,15 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    if (keyPress == OF_KEY_LEFT)
-    {
-        currentPosition.x = currentPosition.x - 1;
-    }
-    else if (keyPress == OF_KEY_RIGHT)
-    {
-        currentPosition.x = currentPosition.x + 1;
-    }
-    else if (keyPress == OF_KEY_UP)
-    {
-        currentPosition.y = currentPosition.y - 1;
-    }
-    else if (keyPress == OF_KEY_DOWN)
-    {
-        currentPosition.y = currentPosition.y + 1;
-    }
+    
+    player.update(keyPress);
 
-    if(hasCollectedCollectable(collectable, currentPosition))
+    if(hasCollectedCollectable(collectable, player.getPosition()))
     {
         collectable.randomizePosition();
     }
 
-    if(hasCollidedWithBorder(currentPosition))
+    if(hasCollidedWithBorder(player.getPosition()))
     {
         resetState();
     }
@@ -70,9 +57,7 @@ void ofApp::draw(){
 
     collectable.draw();
 
-    //Create a character square
-    ofSetColor(KCC::colors::lightPinkRed);
-    ofDrawRectangle(currentPosition.x * squareSize, currentPosition.y * squareSize, squareSize, squareSize);
+    player.draw();
 }
 
 //--------------------------------------------------------------
@@ -88,10 +73,9 @@ void ofApp::keyPressed(int key){
 
 void ofApp::resetState()
 {
-    currentPosition.x = gridCenter;
-    currentPosition.y = gridCenter;
+    player.setPosition(gridCenter, gridCenter);
 
-    collectable.setup(&currentPosition);
+    collectable.setup(&player.getPosition());
 
     keyPress = -1;
 }
@@ -120,20 +104,20 @@ namespace
         font.drawString(title, centerWindow - centerTitle, titleHeight);
     }
 
-    bool hasCollectedCollectable(const KCC::collectable& collectable, const vector2D& player)
+    bool hasCollectedCollectable(const KCC::collectable& collectable, const vector2D& playerPosition)
     {
         const vector2D& collectablePosition = collectable.getPosition();
-        return collectablePosition.x == player.x && collectablePosition.y == player.y;
+        return collectablePosition.x == playerPosition.x && collectablePosition.y == playerPosition.y;
     }
 
-    bool hasCollidedWithBorder(const vector2D& player)
+    bool hasCollidedWithBorder(const vector2D& playerPosition)
     {
-        if(player.x < 0 || player.x >= ofApp::gridSize)
+        if(playerPosition.x < 0 || playerPosition.x >= ofApp::gridSize)
         {
             return true;
         }
 
-        if(player.y < 0 || player.y >= ofApp::gridSize)
+        if(playerPosition.y < 0 || playerPosition.y >= ofApp::gridSize)
         {
             return true;
         }

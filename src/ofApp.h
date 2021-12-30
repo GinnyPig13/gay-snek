@@ -4,6 +4,7 @@
 
 #include "collectable.h"
 #include "vector2D.h"
+#include "player.h"
 
 class ofApp : public ofBaseApp
 {
@@ -27,8 +28,8 @@ private:
 	int centerWindowWidth;
     int centerWindowHeight;
 
-	vector2D currentPosition;
 	int keyPress;
 
 	KCC::collectable collectable;
+	KCC::player player;
 };
