@@ -14,8 +14,11 @@ namespace KCC
         inline const vector2D& getPosition() const { return currentPosition; }
         void setPosition(int x, int y);
 
+        void addFollower();
+        void removeAllFollewers();
+
     private:
         vector2D currentPosition;
-        follow body;
+        std::vector<follow*> followers;
     };
 }

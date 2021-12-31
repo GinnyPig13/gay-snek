@@ -26,7 +26,13 @@ void KCC::player::update(int keyPress)
         currentPosition.y = currentPosition.y + 1;
     }
 
-    body.update(previousPosition);
+    vector2D previousFollowPosition;
+    for(follow* follower : followers)
+    {
+        previousFollowPosition = follower->getPosition();
+        follower->update(previousPosition);
+        previousPosition = previousFollowPosition;
+    }
 }
 
 void KCC::player::draw()
@@ -36,7 +42,25 @@ void KCC::player::draw()
     static const int gridUnit = ofGetWindowWidth() / ofApp::gridSize;
     ofDrawRectangle(currentPosition.x * gridUnit, currentPosition.y * gridUnit, gridUnit, gridUnit);
 
-    body.draw();
+    for(follow* follower : followers)
+    {
+        follower->draw();
+    }
+}
+
+void KCC::player::addFollower()
+{
+    followers.push_back(new follow(currentPosition.x, currentPosition.y));
+}
+
+void KCC::player::removeAllFollewers()
+{
+    for(follow* follower : followers)
+    {
+        delete follower;
+    }
+
+    followers.clear();
 }
 
 void KCC::player::setPosition(int x, int y)

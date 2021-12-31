@@ -43,6 +43,7 @@ void ofApp::update(){
     if(hasCollectedCollectable(collectable, player.getPosition()))
     {
         collectable.randomizePosition();
+        player.addFollower();
     }
 
     if(hasCollidedWithBorder(player.getPosition()))
@@ -74,6 +75,7 @@ void ofApp::keyPressed(int key){
 void ofApp::resetState()
 {
     player.setPosition(gridCenter, gridCenter);
+    player.removeAllFollewers();
 
     collectable.setup(&player.getPosition());
 

@@ -4,6 +4,12 @@
 #include "ofApp.h"
 #include "ofGraphics.h"
 
+KCC::follow::follow(int x, int y)
+{
+    followPosition.x = x;
+    followPosition.y = y;
+}
+
 void KCC::follow::draw()
 {
     // TODO: Make colors cycle Virginia!

@@ -8,8 +8,12 @@ namespace KCC
     class follow
     {
     public:
+        follow(int x, int y);
+
         void draw();
         void update(const vector2D& previousPosition);
+
+        inline const vector2D& getPosition() const { return followPosition; }
 
     private:
         vector2D followPosition;
