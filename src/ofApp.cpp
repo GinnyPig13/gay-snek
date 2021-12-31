@@ -73,12 +73,14 @@ void ofApp::keyPressed(int key){
     if(keyPress == -1)
     {
         keyPress = key;
+        hasAcceptedInput = true;
     }
     else if(keyPress == OF_KEY_LEFT || keyPress == OF_KEY_RIGHT)
     {
         if (key == OF_KEY_DOWN || key == OF_KEY_UP)
         {
             keyPress = key;
+            hasAcceptedInput = true;
         }
     }
     else if(keyPress == OF_KEY_UP || keyPress == OF_KEY_DOWN)
@@ -86,10 +88,9 @@ void ofApp::keyPressed(int key){
         if (key == OF_KEY_LEFT || key == OF_KEY_RIGHT)
         {
             keyPress = key;
+            hasAcceptedInput = true;
         }
     }
-
-    hasAcceptedInput = true;
 }
 
 void ofApp::resetState()
