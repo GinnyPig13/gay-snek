@@ -63,15 +63,18 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(keyPress == OF_KEY_LEFT || keyPress == OF_KEY_RIGHT)
+    if(keyPress == -1)
+    {
+        keyPress = key;
+    }
+    else if(keyPress == OF_KEY_LEFT || keyPress == OF_KEY_RIGHT)
     {
         if (key == OF_KEY_DOWN || key == OF_KEY_UP)
         {
             keyPress = key;
         }
     }
-
-    if(keyPress == OF_KEY_UP || keyPress == OF_KEY_DOWN)
+    else if(keyPress == OF_KEY_UP || keyPress == OF_KEY_DOWN)
     {
         if (key == OF_KEY_LEFT || key == OF_KEY_RIGHT)
         {

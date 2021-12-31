@@ -28,7 +28,7 @@ private:
 	int centerWindowWidth;
     int centerWindowHeight;
 
-	int keyPress;
+	int keyPress = -1;
 
 	KCC::collectable collectable;
 	KCC::player player;
