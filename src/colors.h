@@ -14,4 +14,6 @@ namespace KCC::colors
     static const ofColor maximumBluePurple(189, 178, 255);
     static const ofColor mauvePink(255, 198, 255);
     static const ofColor richBlack(1, 22, 39);
+
+    ofColor getColor (int followerCount);
 }

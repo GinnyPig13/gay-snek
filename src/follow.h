@@ -8,7 +8,7 @@ namespace KCC
     class follow
     {
     public:
-        follow(int x, int y);
+        follow(int x, int y, int followCount);
 
         void draw();
         void update(const vector2D& previousPosition);

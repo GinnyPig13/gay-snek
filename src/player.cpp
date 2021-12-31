@@ -50,7 +50,7 @@ void KCC::player::draw()
 
 void KCC::player::addFollower()
 {
-    followers.push_back(new follow(currentPosition.x, currentPosition.y));
+    followers.push_back(new follow(currentPosition.x, currentPosition.y, followers.size()));
 }
 
 void KCC::player::removeAllFollowers()

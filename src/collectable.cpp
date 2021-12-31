@@ -35,7 +35,7 @@ void KCC::collectable::randomizePosition()
 
 void KCC::collectable::draw()
 {
-    ofSetColor(KCC::colors::deepChampagneOrange);
+    ofSetColor(KCC::colors::babyPowderWhite);
 
     static const int gridUnit = ofGetWindowWidth() / ofApp::gridSize;
     ofDrawRectangle(position.x * gridUnit, position.y * gridUnit, gridUnit, gridUnit);
