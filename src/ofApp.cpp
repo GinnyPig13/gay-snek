@@ -50,6 +50,8 @@ void ofApp::update(){
         collectable.randomizePosition();
         player.addFollower();
     }
+
+    hasAcceptedInput = false;
 }
 
 //--------------------------------------------------------------
@@ -63,6 +65,11 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    if(hasAcceptedInput)
+    {
+        return;
+    }
+
     if(keyPress == -1)
     {
         keyPress = key;
@@ -82,6 +89,7 @@ void ofApp::keyPressed(int key){
         }
     }
 
+    hasAcceptedInput = true;
 }
 
 void ofApp::resetState()

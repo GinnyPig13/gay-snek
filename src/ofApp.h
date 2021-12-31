@@ -29,6 +29,7 @@ private:
     int centerWindowHeight;
 
 	int keyPress = -1;
+	bool hasAcceptedInput = false;
 
 	KCC::collectable collectable;
 	KCC::player player;
