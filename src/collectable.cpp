@@ -4,12 +4,12 @@
 #include "ofGraphics.h"
 #include "ofMath.h"
 #include "colors.h"
+#include "player.h"
 
-void KCC::collectable::setup(const vector2D* playerPosition)
+void KCC::collectable::setup(const player* pPlayer)
 {
-    this->playerPosition = playerPosition;
-
-    if(playerPosition)
+    this->pPlayer = pPlayer;
+    if(pPlayer)
     {
         randomizePosition();
     }
@@ -17,7 +17,7 @@ void KCC::collectable::setup(const vector2D* playerPosition)
 
 void KCC::collectable::randomizePosition()
 {
-    if(playerPosition)
+    if(pPlayer)
     {
         int randomX = 0;
         int randomY = 0;
@@ -25,7 +25,8 @@ void KCC::collectable::randomizePosition()
         {
             randomX = static_cast<int>(ofRandom(ofApp::gridSize));
             randomY = static_cast<int>(ofRandom(ofApp::gridSize));
-        } while (randomX == playerPosition->x && randomY == playerPosition->y);
+        } while (pPlayer->hasPosition(randomX, randomY));
+
 
         position.x = randomX;
         position.y = randomY;

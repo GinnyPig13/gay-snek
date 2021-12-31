@@ -18,6 +18,7 @@ namespace KCC
         void removeAllFollowers();
 
         bool hasCollidedWithSelf() const;
+        bool hasPosition(int x, int y) const;
 
     private:
         vector2D currentPosition;

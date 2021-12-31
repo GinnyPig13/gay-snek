@@ -65,10 +65,15 @@ void KCC::player::removeAllFollowers()
 
 bool KCC::player::hasCollidedWithSelf() const
 {
+    return hasPosition(currentPosition.x, currentPosition.y);
+}
+
+bool KCC::player::hasPosition(int x, int y) const
+{
     for(follow* follower : followers)
     {
         const vector2D& followerPosition = follower->getPosition();
-        if(followerPosition.x == currentPosition.x && followerPosition.y == currentPosition.y)
+        if(followerPosition.x == x && followerPosition.y == y)
         {
             return true;
         }

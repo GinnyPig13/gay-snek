@@ -4,10 +4,11 @@
 
 namespace KCC
 {
+    class player;
     class collectable
     {
     public:
-        void setup(const vector2D* playerPosition);
+        void setup(const player* pPlayer);
         void draw();
 
         void randomizePosition();
@@ -15,6 +16,6 @@ namespace KCC
 
     private:
         vector2D position;
-        const vector2D* playerPosition;
+        const player* pPlayer;
     };
 }

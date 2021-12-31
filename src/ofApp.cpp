@@ -77,7 +77,7 @@ void ofApp::resetState()
     player.setPosition(gridCenter, gridCenter);
     player.removeAllFollowers();
 
-    collectable.setup(&player.getPosition());
+    collectable.setup(&player);
 
     keyPress = -1;
 }
