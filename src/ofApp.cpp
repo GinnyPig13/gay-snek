@@ -30,7 +30,7 @@ void ofApp::setup(){
 	centerWindowWidth = (ofGetWindowWidth()/2) - (squareSize/2);
     centerWindowHeight = (ofGetWindowHeight()/2) - (squareSize/2);
 
-    ofSetFrameRate(5);
+    ofSetFrameRate(10);
 
     resetState();
 }
@@ -63,13 +63,22 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == OF_KEY_LEFT ||
-        key == OF_KEY_RIGHT ||
-        key == OF_KEY_DOWN ||
-        key == OF_KEY_UP)
+    if(keyPress == OF_KEY_LEFT || keyPress == OF_KEY_RIGHT)
     {
-        keyPress = key;
+        if (key == OF_KEY_DOWN || key == OF_KEY_UP)
+        {
+            keyPress = key;
+        }
     }
+
+    if(keyPress == OF_KEY_UP || keyPress == OF_KEY_DOWN)
+    {
+        if (key == OF_KEY_LEFT || key == OF_KEY_RIGHT)
+        {
+            keyPress = key;
+        }
+    }
+
 }
 
 void ofApp::resetState()
