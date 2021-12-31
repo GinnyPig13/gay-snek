@@ -53,7 +53,7 @@ void KCC::player::addFollower()
     followers.push_back(new follow(currentPosition.x, currentPosition.y));
 }
 
-void KCC::player::removeAllFollewers()
+void KCC::player::removeAllFollowers()
 {
     for(follow* follower : followers)
     {
@@ -61,6 +61,20 @@ void KCC::player::removeAllFollewers()
     }
 
     followers.clear();
+}
+
+bool KCC::player::hasCollidedWithSelf() const
+{
+    for(follow* follower : followers)
+    {
+        const vector2D& followerPosition = follower->getPosition();
+        if(followerPosition.x == currentPosition.x && followerPosition.y == currentPosition.y)
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void KCC::player::setPosition(int x, int y)

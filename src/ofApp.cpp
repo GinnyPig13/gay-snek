@@ -40,15 +40,15 @@ void ofApp::update(){
 
     player.update(keyPress);
 
+    if(hasCollidedWithBorder(player.getPosition()) || player.hasCollidedWithSelf())
+    {
+        resetState();
+    }
+
     if(hasCollectedCollectable(collectable, player.getPosition()))
     {
         collectable.randomizePosition();
         player.addFollower();
-    }
-
-    if(hasCollidedWithBorder(player.getPosition()))
-    {
-        resetState();
     }
 }
 
@@ -75,7 +75,7 @@ void ofApp::keyPressed(int key){
 void ofApp::resetState()
 {
     player.setPosition(gridCenter, gridCenter);
-    player.removeAllFollewers();
+    player.removeAllFollowers();
 
     collectable.setup(&player.getPosition());
 
