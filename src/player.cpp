@@ -7,7 +7,9 @@
 
 void KCC::player::update(int keyPress)
 {
-        if (keyPress == OF_KEY_LEFT)
+    vector2D previousPosition = currentPosition;
+
+    if (keyPress == OF_KEY_LEFT)
     {
         currentPosition.x = currentPosition.x - 1;
     }
@@ -23,6 +25,8 @@ void KCC::player::update(int keyPress)
     {
         currentPosition.y = currentPosition.y + 1;
     }
+
+    body.update(previousPosition);
 }
 
 void KCC::player::draw()
@@ -31,6 +35,8 @@ void KCC::player::draw()
 
     static const int gridUnit = ofGetWindowWidth() / ofApp::gridSize;
     ofDrawRectangle(currentPosition.x * gridUnit, currentPosition.y * gridUnit, gridUnit, gridUnit);
+
+    body.draw();
 }
 
 void KCC::player::setPosition(int x, int y)

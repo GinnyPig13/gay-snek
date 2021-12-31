@@ -37,7 +37,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
+
     player.update(keyPress);
 
     if(hasCollectedCollectable(collectable, player.getPosition()))
